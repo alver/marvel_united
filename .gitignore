@@ -1,0 +1,10 @@
+node_modules/
+dist/
+# Personal scans / promo art — generated locally by tools/make_portraits.py, never committed.
+public/img/
+public/cards/
+*.log
+.DS_Store
+resources/
+# Rulebook PDF (copyrighted) — kept locally only.
+rules/

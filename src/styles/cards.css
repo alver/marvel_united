@@ -1,0 +1,288 @@
+/* ─── cards ─── */
+.card {
+  position: relative;
+  width: var(--card-w);
+  height: var(--card-h);
+  border-radius: 10px;
+  background: #f4f1ea;
+  color: #1b1f2a;
+  border: 5px solid var(--hero, var(--villain, #666));
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  flex: 0 0 auto;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.35);
+  user-select: none;
+}
+.card.small {
+  --card-w: 104px;
+  --card-h: 146px;
+  border-width: 3px;
+  border-radius: 7px;
+}
+.card.clickable {
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+.card.clickable:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.5);
+}
+.card.selected {
+  outline: 4px solid var(--accent);
+}
+.card.disabled {
+  opacity: 0.85;
+}
+.card .scan {
+  position: absolute;
+  inset: -5px;
+  width: calc(100% + 10px);
+  height: calc(100% + 10px);
+  object-fit: cover;
+  z-index: 5;
+}
+.card-head {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 6px;
+  background: var(--hero, var(--villain, #666));
+  color: #fff;
+  font-weight: 800;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  line-height: 1.1;
+}
+.hero-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid rgba(0, 0, 0, 0.35);
+  flex: 0 0 auto;
+}
+.card-name {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.card-art {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 50% 40%, #fff 0%, #e6e2d6 80%);
+}
+.card-art img {
+  max-width: 85%;
+  max-height: 95%;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+}
+.card-special {
+  background: #fff;
+  border-top: 2px solid var(--hero, var(--villain, #666));
+  padding: 4px 6px;
+  font-size: 11px;
+  line-height: 1.25;
+}
+.card.small .card-special {
+  font-size: 9.5px;
+  padding: 3px 4px;
+}
+.special-name {
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 0.3px;
+}
+.card.small .special-name {
+  font-size: 8.5px;
+}
+.special-text .icon {
+  vertical-align: -3px;
+  margin: 0 1px;
+}
+.card-syms {
+  background: #fff;
+  border-top: 2px solid #999;
+  padding: 5px 6px;
+  display: flex;
+  justify-content: center;
+  min-height: 38px;
+}
+.card.small .card-syms {
+  min-height: 28px;
+  padding: 3px;
+}
+.symrow {
+  display: inline-flex;
+  gap: 4px;
+}
+.no-syms {
+  font-size: 10px;
+  color: #888;
+  align-self: center;
+}
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Master Plan */
+.plan-card {
+  background: #4d4a58;
+  color: #fff;
+}
+.plan-body {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+}
+.plan-art {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 50% 50%, var(--villain) 0%, #4d4a58 90%);
+}
+.plan-art img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+}
+.plan-right {
+  width: 46px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 2px;
+}
+.card.small .plan-right {
+  width: 34px;
+}
+.plan-move {
+  background: #fff;
+  color: #111;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 18px;
+  position: relative;
+  border: 2px solid #111;
+}
+.card.small .plan-move {
+  width: 26px;
+  height: 26px;
+  font-size: 13px;
+}
+.plan-move .arrow {
+  position: absolute;
+  top: -9px;
+  right: -6px;
+  font-size: 14px;
+  color: #fff;
+  text-shadow: 0 0 2px #000;
+}
+.plan-card .card-special {
+  background: #e9e6ef;
+  color: #1b1f2a;
+}
+.plan-tokens {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  padding: 4px;
+  background: #3a3846;
+}
+.plan-tokens .slot {
+  width: auto;
+  min-width: 26px;
+  height: auto;
+  min-height: 26px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: #f4f1ea;
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 1px;
+  padding: 2px;
+  position: relative;
+  align-content: center;
+  max-width: 44px;
+}
+.plan-tokens .slot.center {
+  border-color: #f2b632;
+}
+.plan-tokens .pin {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #f2b632;
+  font-size: 11px;
+}
+
+/* Threat */
+.threat-card {
+  --card-w: 100%;
+  --card-h: auto;
+  width: 100%;
+  height: auto;
+  background: #ece7f3;
+  border-color: #6a5a80;
+  border-width: 3px;
+}
+.threat-card .card-head {
+  background: var(--villain);
+}
+.threat-text {
+  padding: 5px 6px;
+  font-size: 11.5px;
+  line-height: 1.25;
+  background: #fff;
+}
+.threat-text .icon {
+  vertical-align: -3px;
+}
+.threat-foot {
+  display: flex;
+  justify-content: center;
+  padding: 3px;
+  background: #ded7ea;
+}
+.henchman-health {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-weight: 900;
+  font-size: 14px;
+}
+.heroic-slots {
+  display: inline-flex;
+  gap: 3px;
+}
+.hslot {
+  width: 22px;
+  height: 22px;
+  border: 2px dashed #8a7fa0;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.35;
+}
+.hslot.filled {
+  opacity: 1;
+  border-style: solid;
+  background: #fff3c4;
+}

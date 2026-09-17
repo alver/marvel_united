@@ -1,0 +1,399 @@
+/* ─── scanned art: cards ─── */
+.card.scan-card {
+  border: none;
+  background: transparent;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+}
+.card.scan-card > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
+.card.scan-card.clickable:hover {
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.6), 0 0 0 3px var(--hero, var(--accent));
+}
+.card.scan-card.selected {
+  outline: 4px solid var(--accent);
+}
+.card-back {
+  background: repeating-linear-gradient(135deg, #2b3145 0 8px, #343b52 8px 16px);
+  border-color: var(--line);
+}
+.art-initial {
+  font-size: 64px;
+  font-weight: 900;
+  color: var(--hero, #666);
+  opacity: 0.35;
+}
+
+/* Threat scans: landscape, live state overlaid on the printed slots */
+.threat-card.threat-scan {
+  --card-w: 100%;
+  --card-h: auto;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 693 / 496;
+  border: none;
+  background: transparent;
+  position: relative;
+  border-radius: 6%/8%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+.threat-card.threat-scan > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
+.t-health {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: clamp(11px, 1.6cqw, 22px);
+  color: #fff;
+  text-shadow: 0 0 3px #000, 0 0 6px #000;
+  pointer-events: none;
+}
+.t-star {
+  position: absolute;
+  top: 65%;
+  width: 20%;
+  height: 28%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.6));
+  pointer-events: none;
+}
+.t-star .icon {
+  width: 100%;
+  height: 100%;
+}
+
+/* ─── scanned art: Locations ─── */
+.loc-cell {
+  container-type: size;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  min-width: 0;
+}
+.loc-cell > .location:not(.art) {
+  width: 100%;
+  height: 100%;
+}
+.location.art {
+  width: min(100%, 100cqh);
+  aspect-ratio: 1;
+  height: auto;
+  padding: 0;
+  gap: 0;
+  border: none;
+  border-radius: 3.5%;
+  background-size: cover;
+  background-position: center;
+  display: block;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
+  container-type: inline-size;
+}
+.location.art.active-here {
+  box-shadow: 0 0 0 4px var(--accent), 0 6px 18px rgba(0, 0, 0, 0.5);
+}
+.location.art.villain-here {
+  box-shadow: 0 0 0 4px #c8302a, 0 6px 18px rgba(0, 0, 0, 0.5);
+}
+.location.art.active-here.villain-here {
+  box-shadow: 0 0 0 4px var(--accent), 0 0 0 8px #c8302a, 0 6px 18px rgba(0, 0, 0, 0.5);
+}
+.location.art.can-move {
+  outline: 3px dashed #5aa02c;
+  outline-offset: 2px;
+}
+.location.art.pickable {
+  outline: 4px solid var(--accent);
+  outline-offset: 2px;
+}
+.location.art .slot {
+  position: absolute;
+  width: auto;
+  height: auto;
+  border: none;
+  background: transparent;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.location.art .slot.empty {
+  display: none;
+}
+.location.art .slot .icon {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.55));
+}
+.location.art .slot.target {
+  outline-width: 3px;
+  border-radius: 12%;
+}
+.location.art .slot.wounded {
+  filter: none;
+}
+.art-topright {
+  position: absolute;
+  right: 2.5%;
+  top: 3%;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+.location.art .remote-badge {
+  top: 3.5%;
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
+}
+.art-minis {
+  position: absolute;
+  left: 3%;
+  top: 27%;
+  width: 60%;
+  max-height: 45%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 2%;
+}
+.art-minis .mini {
+  padding: 0;
+  border: none;
+  background: transparent;
+  border-radius: 0;
+  height: 22cqw;
+  position: relative;
+}
+.art-minis .mini .figure {
+  height: 100%;
+  width: auto;
+  filter: drop-shadow(0 3px 3px rgba(0, 0, 0, 0.7));
+}
+.art-minis .mini.hero.active .figure {
+  filter: drop-shadow(0 0 4px var(--accent)) drop-shadow(0 0 10px var(--accent)) drop-shadow(0 3px 3px rgba(0, 0, 0, 0.7));
+}
+.art-minis .mini.hero.ko .figure {
+  transform: rotate(90deg);
+  opacity: 0.6;
+}
+.art-minis .mini.villain .figure {
+  filter: drop-shadow(0 0 3px #c8302a) drop-shadow(0 3px 3px rgba(0, 0, 0, 0.7));
+}
+.art-minis .mini.villain.target .figure,
+.art-minis .mini.pickable .figure {
+  filter: drop-shadow(0 0 5px var(--accent)) drop-shadow(0 0 12px var(--accent));
+}
+.art-minis .mini.target,
+.art-minis .mini.pickable {
+  outline: none;
+  animation: none;
+}
+.art-minis .mini .badge {
+  position: absolute;
+  right: -4px;
+  bottom: 0;
+  border: 1px solid #333;
+}
+.art-minis .mini .badge.inv {
+  bottom: auto;
+  top: 0;
+}
+.art-threat {
+  position: absolute;
+  left: 20%;
+  bottom: 1.5%;
+  width: 60%;
+}
+.eot-hint {
+  position: absolute;
+  left: 20%;
+  bottom: 2%;
+  width: 60%;
+  text-align: center;
+  font-size: clamp(9px, 3.2cqw, 13px);
+  font-weight: 800;
+  color: #fff;
+  background: rgba(47, 111, 78, 0.9);
+  border-radius: 999px;
+  padding: 2px 6px;
+  pointer-events: none;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+/* ─── dashboard scan ─── */
+.dash {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  container-type: inline-size;
+}
+.dash > img {
+  display: block;
+  width: 100%;
+}
+.dash-health {
+  position: absolute;
+  left: 2%;
+  top: 50%;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  background: rgba(20, 23, 34, 0.92);
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 999px;
+  padding: 2px 9px 2px 5px;
+  font-weight: 900;
+  font-size: 16px;
+}
+.dash-health.locked {
+  color: #ccc;
+}
+.dash-health .lock {
+  font-size: 11px;
+}
+.fear-marker {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 5.2%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #f2b632;
+  border: 2px solid #1b1f2a;
+  color: #1b1f2a;
+  font-weight: 900;
+  font-size: clamp(8px, 3.4cqw, 14px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+}
+.vp-details {
+  margin-top: 6px;
+}
+.vp-details summary {
+  cursor: pointer;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* ─── mission scans ─── */
+.mission-scan {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
+}
+.mission-scan > img {
+  display: block;
+  width: 100%;
+}
+.mission-scan.done > img {
+  filter: saturate(0.3) brightness(0.8);
+}
+.m-token {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.6));
+  pointer-events: none;
+}
+.m-token .icon {
+  width: 100%;
+  height: 100%;
+}
+.m-done {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(-18deg);
+  background: rgba(111, 207, 122, 0.95);
+  color: #1b1f2a;
+  font-weight: 900;
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 2px solid #1b1f2a;
+}
+
+/* ─── figures elsewhere ─── */
+.hs img {
+  width: 34px;
+  height: 44px;
+  object-fit: contain;
+}
+.pick img.figure {
+  width: 56px;
+  height: 72px;
+  object-fit: contain;
+}
+.villain-pick {
+  grid-template-columns: 1fr;
+}
+.villain-pick .banner-img {
+  width: 100%;
+  border-radius: 8px;
+  display: block;
+}
+
+/* ─── previews ─── */
+.preview-wide {
+  width: 900px;
+  max-width: 60vw;
+  border-radius: 12px;
+}
+.preview-square {
+  width: 520px;
+  max-width: 40vw;
+  border-radius: 12px;
+}
+.preview-card {
+  width: 300px;
+  border-radius: 12px;
+}
+.preview.preview-threat .threat-card {
+  width: 480px;
+}
+.preview.preview-dashboard,
+.preview.preview-location {
+  transform: none;
+}
+
+/* deck pile shows the top card's back */
+.deck-count.has-back {
+  background-size: cover;
+  background-position: center;
+  border: none;
+  justify-content: flex-end;
+  padding-bottom: 6px;
+}
+.deck-count.has-back b,
+.deck-count.has-back span {
+  background: rgba(20, 23, 34, 0.85);
+  padding: 0 6px;
+  border-radius: 6px;
+}
