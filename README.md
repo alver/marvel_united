@@ -89,7 +89,7 @@ src/
   styles/             CSS
 tests/                Vitest: data invariants, engine rules, bot simulation (bot.ts)
 tools/                build-assets.mjs (scans → WebP), simlog.ts
-rules/                the official rulebook PDF
+rules/                the official rulebook PDF (gitignored, local only)
 resources/            your scans (gitignored) → public/img/ (gitignored)
 ```
 
